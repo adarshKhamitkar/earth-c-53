@@ -55,6 +55,23 @@ class BinarySearchTree:
         else:
             print(f"{data} is not a member of this tree")
             
+def height(bst):
+    if(bst == None): return 0
+    elif(bst.left_child == None and bst.right_child == None):
+        return 1
+        
+    else:
+            
+        lheight = height(bst.left_child)
+        rheight = height(bst.right_child)
+            
+        print(lheight)
+        print(rheight)
+            
+        if(lheight > rheight):
+            return int(lheight+1)
+        else:
+            return int(rheight+1)            
             
 if __name__ == "__main__":
     
@@ -81,6 +98,8 @@ if __name__ == "__main__":
     bst.find_node(32)
     bst.find_node(21)
     bst.find_node(75)
+    
+    print(f" The height of the Tree is {height(bst)}")
 
 ##################### Output #####################
 # In Order
@@ -117,3 +136,14 @@ if __name__ == "__main__":
 # 32 found after 3 iterations
 # 21 found after 2 iterations
 # 75 is not a member of this tree
+# 0
+# 1
+# 0
+# 2
+# 0
+# 1
+# 2
+# 1
+# 3
+# 3
+#  The height of the Tree is 4
